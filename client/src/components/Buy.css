@@ -1,0 +1,27 @@
+.buy-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.mb{
+    width: 600px;
+    height: 20px;
+    margin: 80px;
+}
+.btn{
+    border: 2px solid black;
+    background-color: blue;
+    color: white;
+    text-align: center;
+    margin-left: 290px;
+    transition: all 0.5s;
+    margin: 40px 290px;
+}
+
+.btn:hover{
+    transform: scale(1.09);
+    background-color: yellow;
+    
+}
