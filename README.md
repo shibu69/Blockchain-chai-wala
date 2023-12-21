@@ -3,6 +3,8 @@
 
 ## Getting Started
 
+This is a prototype which i have submitted as my mini project
+
 To get this DApp running, follow the steps below:
 
 ### Clone the Repository
