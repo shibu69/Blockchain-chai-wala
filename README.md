@@ -5,6 +5,8 @@
 
 This is a prototype which i have submitted as my mini project
 
+To use this, You should have a crypto wallet named metamask and some testnet faucet on Goreili Network
+
 To get this DApp running, follow the steps below:
 
 ### Clone the Repository
