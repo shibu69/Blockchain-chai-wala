@@ -1,17 +1,27 @@
-import { ethers } from "ethers";
-import "./Buy.css"
+import Web3 from "web3";
+import "./Buy.css";
+
 const Buy = ({ state }) => {
   const buyChai = async (event) => {
     event.preventDefault();
-    const { contract } = state;
+    const { contract, signer } = state;
     const name = document.querySelector("#name").value;
     const message = document.querySelector("#message").value;
     console.log(name, message, contract);
-    const amount = { value: ethers.utils.parseEther("0.001") };
-    const transaction = await contract.buyChai(name, message, amount);
-    await transaction.wait();
-    console.log("Transaction is done");
+
+    const amount = Web3.utils.toWei("0.001", "ether");
+
+    try {
+      const transaction = await contract.methods.buyChai(name, message).send({
+        from: signer,
+        value: amount,
+      });
+      console.log("Transaction is done", transaction);
+    } catch (error) {
+      console.error("Transaction failed", error);
+    }
   };
+
   return (
     <>
       <div className="buy-container">
@@ -34,10 +44,7 @@ const Buy = ({ state }) => {
               placeholder="Enter Your Message"
             />
           </div>
-          <button
-            className="btn"
-            disabled={!state.contract}
-          >
+          <button className="btn" disabled={!state.contract}>
             Spread Your Love❤️
           </button>
         </form>
@@ -45,4 +52,5 @@ const Buy = ({ state }) => {
     </>
   );
 };
+
 export default Buy;
